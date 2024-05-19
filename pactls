@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check argument
+[ "$#" -ne 1 ] && echo "Error: 1 arg (d/m)" && exit 1
+case "$1" in
+    d) vol=5.907 ;;
+    m) vol=20 ;;
+    *) echo "Error: Invalid arg" && exit 1
+esac
+
+# Set volume
+pactl set-sink-volume @DEFAULT_SINK@ "$vol%"
+
+exit 0
