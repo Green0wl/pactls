@@ -1,0 +1,36 @@
+.TH PACTLS 1 "05/19/2024" "User Commands"
+.SH NAME
+pactls \- Manage default sound device volume
+.SH SYNOPSIS
+.B pactls
+[\fId\fR|\fIm\fR]
+.SH DESCRIPTION
+Set default sound device volume to 5.907% (\fId\fR) or 20% (\fIm\fR).
+.SH OPTIONS
+.TP
+.B d
+Set volume to 5.907%
+.TP
+.B m
+Set volume to 20%
+.SH EXAMPLES
+pactls d
+.br
+pactls m
+.SH EXIT STATUS
+.TP
+0
+Success
+.TP
+1
+Error: 1 arg (d/m) \- Invalid number of arguments
+.TP
+1
+Error: Invalid arg \- Argument is not 'd' or 'm'
+.TP
+1
+Install pulseaudio \- pactl utility not installed
+.SH SEE ALSO
+pactl(1)
+.SH AUTHOR
+[Ivan Kolomiiets <kolomietsivan88@gmail.com>]

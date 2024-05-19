@@ -1,0 +1,18 @@
+#!/bin/bash
+
+[ "$UID" -ne 0 ] && echo "Run as root" && exit 1
+
+# Check if pactl is installed
+command -v pactl >/dev/null || { echo "Install pulseaudio"; exit 1; }
+
+path="/usr/local/bin/pactls"
+cp "$(dirname "$0")/pactls" "$path" || { echo "Failed to copy script"; exit 1; }
+chmod +x "$path"
+
+cp pactls.1 /usr/local/man/man1/pactls.1 || { echo "Failed to update mandb"; exit 1; }
+mandb >/dev/null
+
+echo "Installed at $path; mandb updated"
+echo "Usage: pactls d (5.907%) or pactls m (20%) / man pactls"
+
+exit 0
